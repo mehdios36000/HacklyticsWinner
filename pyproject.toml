@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "hacklytics-winner"
+version = "0.1.0"
+description = ""
+authors = ["RenChu Wang <patrick1031wang@gmail.com>", "Alami Idrissi Mehdi <57323885+mehdios36000@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = {extras = ["all"], version = "^0.91.0"}
+vaderSentiment = "^3.3.2"
+afinn = "^0.1"
+pydantic = "^1.10.4"
+fuzzywuzzy = "^0.18.0"
+python-levenshtein = "^0.20.9"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+uvicorn = "^0.20.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
