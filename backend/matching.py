@@ -3,6 +3,7 @@ from typing import List
 import numpy as np
 import pandas as pd
 from pandas import DataFrame
+from rich import print
 
 
 def nut_norm_onehot(components: List[str]):
@@ -17,6 +18,7 @@ def nut_norm_onehot(components: List[str]):
 
 
 def read_file_and_match(ingredient_food: str, cleaned_recipe: str, nutrients):
+    nutrients = [n.lower() for n in nutrients]
 
     if_df = pd.read_csv(ingredient_food)
     cr_df = pd.read_csv(cleaned_recipe)
@@ -30,6 +32,11 @@ def match_ingredients_and_recipe(if_df: DataFrame, cr_df: DataFrame, nutrients):
 
     if_df = if_df.loc[:, ["Ingredient"] + NUTRIENTS]
     cr_df = cr_df.loc[:, ["Title", "Instructions"] + FOODS]
+
+    cr_df.dropna(inplace=True)
+
+    # print(cr_df["Title"].isnull().sum())
+    # print(cr_df["Instructions"].isnull().sum())
 
     # ingredients x nutrients
     if_df_mat = (
@@ -71,9 +78,17 @@ NUTRIENTS_POSITION = {nut: pos for (pos, nut) in enumerate(NUTRIENTS)}
 
 if __name__ == "__main__":
     print(
-        read_file_and_match(
-            "./data/ingr_to_food.csv",
-            "./data/cleaned-recipe.csv",
-            ["protein(g)", "carbs"],
-        )
+        [
+            s[0]
+            for s in read_file_and_match(
+                "./data/ingr_to_food.csv",
+                "./data/cleaned-recipe.csv",
+                [
+                    i.lower().strip()
+                    for i in "fiber, protein(g), vit_c, vit_a, Iron, Carbs".lower().split(
+                        ","
+                    )
+                ],
+            )
+        ]
     )
