@@ -1,0 +1,33 @@
+Disease,Nutrients Required
+Flu,"Vitamin C, Vitamin A, iron, protein"
+Musscle Pain,"Fibre, Protein, Vitamin C, Vitamin A, Iron, Carbs"
+Stomach Pain,"Vitamin C, Vitamin A, Energy, Calcium"
+Headache,"sat_fat, fiber"
+Fever,"Vitamin C, Vitamin A, Protein, Carbs"
+Cold,"Vitamin C, Vitamin A, Protein, Carbs"
+Cough,"Fibre, Protein, Vitamin C, Vitamin A, Iron, Carbs"
+Dizziness,"Fibre, Protein"
+Vomitting,Carbs
+Diabetes,"Fibre, Protein"
+Low Blood Pressure,Sodium
+High Blood Pressure,"Vitamin C, "
+Body Ache,"Fibre, Protein, Vitamin C, Vitamin A, Iron, Carbs"
+Breathing Trouble,"Vitamin C, Vitamin A, Protein, Carbs"
+Running Nose,"Vitamin C, Vitamin A, Protein, Carbs"
+Dengue,Vitamin C
+Iron Deficiency,"Vitamin C, Fibre"
+Anemia,Iron
+Diarrhea,"Iron, Energy"
+Blood Loss,Iron
+Infection,Vitamin C
+Lung Disease,"Fibre, Proteins, Vitamin C, Vitamin A"
+Melanoma,"Vitamin C, Vitamin A"
+Nutritional Deficiency,"Vitamin C, Vitamin A, Iron, Carbs, Protein"
+Obesity,"Protein, Fibre"
+Tuberculosis,"Protein, Fibre"
+Acute Pain,"Vitamin A, Vitamin C"
+Post Covid,"Protein, Iron, Carbs, Vitamin A, Vitamin C"
+Cancer,"Fibre, Calcium"
+Epilepsy,"Sugar, Energy"
+Kidney Disease,Sodium
+Liver Disease,"Carbs, Vitamin A, Vitamin C"
