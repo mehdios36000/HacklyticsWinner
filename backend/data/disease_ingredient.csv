@@ -1,33 +1,33 @@
 Disease,Nutrients Required
-Flu,"Vitamin C, Vitamin A, iron, protein"
-Musscle Pain,"Fibre, Protein, Vitamin C, Vitamin A, Iron, Carbs"
-Stomach Pain,"Vitamin C, Vitamin A, Energy, Calcium"
+Flu,"vit_c, vit_a, iron, protein(g)"
+Musscle Pain,"fiber, protein(g), vit_c, vit_a, Iron, Carbs"
+Stomach Pain,"vit_c, vit_a, Energy, Calcium"
 Headache,"sat_fat, fiber"
-Fever,"Vitamin C, Vitamin A, Protein, Carbs"
-Cold,"Vitamin C, Vitamin A, Protein, Carbs"
-Cough,"Fibre, Protein, Vitamin C, Vitamin A, Iron, Carbs"
-Dizziness,"Fibre, Protein"
+Fever,"vit_c, vit_a, protein(g), Carbs"
+Cold,"vit_c, vit_a, protein(g), Carbs"
+Cough,"fiber, protein(g), vit_c, vit_a, Iron, Carbs"
+Dizziness,"fiber, protein(g)"
 Vomitting,Carbs
-Diabetes,"Fibre, Protein"
+Diabetes,"fiber, protein(g)"
 Low Blood Pressure,Sodium
-High Blood Pressure,"Vitamin C, "
-Body Ache,"Fibre, Protein, Vitamin C, Vitamin A, Iron, Carbs"
-Breathing Trouble,"Vitamin C, Vitamin A, Protein, Carbs"
-Running Nose,"Vitamin C, Vitamin A, Protein, Carbs"
-Dengue,Vitamin C
-Iron Deficiency,"Vitamin C, Fibre"
+High Blood Pressure,"vit_c"
+Body Ache,"fiber, protein(g), vit_c, vit_a, Iron, Carbs"
+Breathing Trouble,"vit_c, vit_a, protein(g), Carbs"
+Running Nose,"vit_c, vit_a, protein(g), Carbs"
+Dengue,vit_c
+Iron Deficiency,"vit_c, fiber"
 Anemia,Iron
 Diarrhea,"Iron, Energy"
 Blood Loss,Iron
-Infection,Vitamin C
-Lung Disease,"Fibre, Proteins, Vitamin C, Vitamin A"
-Melanoma,"Vitamin C, Vitamin A"
-Nutritional Deficiency,"Vitamin C, Vitamin A, Iron, Carbs, Protein"
-Obesity,"Protein, Fibre"
-Tuberculosis,"Protein, Fibre"
-Acute Pain,"Vitamin A, Vitamin C"
-Post Covid,"Protein, Iron, Carbs, Vitamin A, Vitamin C"
-Cancer,"Fibre, Calcium"
-Epilepsy,"Sugar, Energy"
+Infection,vit_c
+Lung Disease,"fiber, protein(g), vit_c, vit_a"
+Melanoma,"vit_c, vit_a"
+Nutritional Deficiency,"vit_c, vit_a, Iron, Carbs, protein(g)"
+Obesity,"protein(g), fiber"
+Tuberculosis,"protein(g), fiber"
+Acute Pain,"vit_a, vit_c"
+Post Covid,"protein(g), Iron, Carbs, vit_a, vit_c"
+Cancer,"fiber, Calcium"
+Epilepsy,"Sugars, Energy"
 Kidney Disease,Sodium
-Liver Disease,"Carbs, Vitamin A, Vitamin C"
+Liver Disease,"Carbs, vit_a, vit_c"

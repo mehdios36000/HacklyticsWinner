@@ -4,7 +4,7 @@ from tqdm import tqdm
 
 if __name__ == "__main__":
     recipe_df = pd.read_csv("./data/IngredientsAndRecipe.csv")
-    ingredient_df = pd.read_csv("./data/ingredients_metadata.csv")
+    ingredient_df = pd.read_csv("./data/ingr_to_food.csv")
 
     target_ingredients = list(ingredient_df["Ingredient"])
 
