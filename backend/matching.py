@@ -17,39 +17,42 @@ def nut_norm_onehot(components: List[str]):
 
 
 def read_file_and_match(ingredient_food: str, cleaned_recipe: str, nutrients):
-    vector = nut_norm_onehot(nutrients)
-    print(len(vector))
-    assert len(vector) == len(NUTRIENTS)
 
     if_df = pd.read_csv(ingredient_food)
     cr_df = pd.read_csv(cleaned_recipe)
-    print(if_df.shape, cr_df.shape)
-    # Filter out all zeros
-    # if_non_zero = np.linalg.norm(if_df.loc[:, NUTRIENTS].to_numpy(), axis=-1) > 1e-8
-    # if_df = if_df.iloc[if_non_zero]
+    # print(if_df.shape, cr_df.shape)
 
-    # cr_non_zero = np.linalg.norm(cr_df.loc[:, FOODS].to_numpy(), axis=-1) > 1e-8
-    # cr_df = cr_df.iloc[cr_non_zero]
-
-    return match_ingredients_and_recipe(if_df, cr_df, vector)
+    return match_ingredients_and_recipe(if_df, cr_df, nutrients)
 
 
-def match_ingredients_and_recipe(if_df: DataFrame, cr_df: DataFrame, vector):
+def match_ingredients_and_recipe(if_df: DataFrame, cr_df: DataFrame, nutrients):
+    vector = nut_norm_onehot(nutrients)
+
     if_df = if_df.loc[:, ["Ingredient"] + NUTRIENTS]
-    cr_df = cr_df.loc[:, ["Title"] + FOODS]
+    cr_df = cr_df.loc[:, ["Title", "Instructions"] + FOODS]
 
     # ingredients x nutrients
-    if_df_mat = if_df.loc[:, NUTRIENTS].to_numpy().astype("float")
+    if_df_mat = (
+        if_df.loc[:, NUTRIENTS].to_numpy().astype("float") + np.random.randn() / 1e4
+    )
     if_df_mat /= np.linalg.norm(if_df_mat, axis=-1, keepdims=True) + 1e-8
 
     # recipes x ingredients
-    cr_df_mat = cr_df.loc[:, FOODS].to_numpy().astype("float")
+    cr_df_mat = cr_df.loc[:, FOODS].to_numpy().astype("float") + np.random.randn() / 1e4
     cr_df_mat /= np.linalg.norm(cr_df_mat, axis=-1, keepdims=True) + 1e-8
 
-    print(cr_df_mat.shape, if_df_mat.shape)
-    match_score = np.einsum("in,ri->rn", if_df_mat, cr_df_mat)
+    # print(cr_df_mat.shape, if_df_mat.shape)
+    match_mat = np.einsum("in,ri->rn", if_df_mat, cr_df_mat)
+    match_score = np.einsum("rn,n->r", match_mat, vector)
+    argsort = np.argsort(match_score)[::-1]
 
-    return match_score
+    argsort = argsort[:10]
+
+    titles = cr_df["Title"][argsort]
+    instructions = cr_df["Instructions"][argsort]
+    scores = match_score[argsort]
+    assert len(titles) == len(instructions) == len(scores)
+    return list(zip(titles, instructions, scores))
 
 
 FOODS = [
@@ -58,7 +61,7 @@ FOODS = [
         ","
     )
 ]
-print(len(FOODS), "hello")
+# print(len(FOODS), "hello")
 
 NUTRIENTS = "cal/g,fat(g),carb(g),protein(g),vit_a,vit_c,iron,trans_fat,sat_fat,cholesterol,sodium,carbs,fiber,sugars,calcium,protein,energy".strip().split(
     ","
