@@ -9,13 +9,14 @@ if __name__ == "__main__":
     target_ingredients = list(ingredient_df["Ingredient"])
 
     recipe_df["Ingredients"] = recipe_df["Cleaned_Ingredients"].map(
-        lambda value: " ".join(eval(value))
+        lambda value: (" ".join(eval(value))).lower()
     )
 
     del recipe_df["Cleaned_Ingredients"]
 
     has_ingredients = {}
     for ingredient in tqdm(target_ingredients):
+        ingredient = ingredient.lower()
         has_ingredients[ingredient] = recipe_df["Ingredients"].map(
             lambda ing: ingredient in ing
         )
